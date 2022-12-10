@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get => FindObjectOfType<GameManager>(); }
 
+    private GameObject Player { get; set; }
     private GameObject[] Fruits { get; set; }
     private Transform EnvironmentRef { get; set; }
 
@@ -15,12 +16,15 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        Player = Resources.Load<GameObject>("player");
         Fruits = Resources.LoadAll<GameObject>("fruits");
+
         EnvironmentRef = GameObject.Find("Environment").transform;
     }
 
     public void RestartGame()
     {
+        Instantiate(Player, EnvironmentRef);
         StartCoroutine(nameof(Spawning));
     }
 
@@ -30,6 +34,17 @@ public class GameManager : MonoBehaviour
         foreach(Fruit f in fruit)
         {
             Destroy(f.gameObject);
+        }
+
+        GameObject[] sliced = GameObject.FindGameObjectsWithTag("sliced");
+        foreach (GameObject s in sliced)
+        {
+            Destroy(s);
+        }
+
+        if (FindObjectOfType<Player>())
+        {
+            Destroy(FindObjectOfType<Player>());
         }
 
         OnGameFinsihed?.Invoke(IsWin);

@@ -4,9 +4,13 @@ using UnityEngine.Events;
 
 public class Popup : MonoBehaviour
 {
-    public void SetData(string scoreString, UnityAction action)
+    [SerializeField] Sprite lose;
+    [SerializeField] Sprite win;
+
+    public void SetData(bool IsWin, UnityAction action)
     {
-        GameObject.Find("finalScoreText").GetComponent<Text>().text = scoreString;
+        GetComponent<Image>().sprite = IsWin ? win : lose;
+        GetComponent<Image>().SetNativeSize();
 
         GameObject.Find("again").GetComponent<Button>().onClick.AddListener(action);
         GameObject.Find("again").GetComponent<Button>().onClick.AddListener(() =>

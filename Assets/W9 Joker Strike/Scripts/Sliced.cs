@@ -9,7 +9,7 @@ public class Sliced : MonoBehaviour
         {
             Rigidbody2D rigidbody = transform.GetChild(i).GetComponent<Rigidbody2D>();
 
-            rigidbody.AddForce(i > 0 ? Vector2.right * force : Vector2.left * force, ForceMode2D.Impulse);
+            rigidbody.AddForce(i > 0 ? new Vector2(1, 1) * force : new Vector2(-1, 1) * force, ForceMode2D.Impulse);
             rigidbody.angularVelocity = Random.Range(120, 180);
         }
     }

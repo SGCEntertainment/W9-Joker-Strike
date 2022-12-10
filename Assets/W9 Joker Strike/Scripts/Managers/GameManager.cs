@@ -1,5 +1,8 @@
 using UnityEngine;
 using System;
+using System.Collections;
+
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,11 +21,27 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-
+        StartCoroutine(nameof(Spawning));
     }
 
-    public void GameOver()
+    public void GameOver(bool IsWin)
     {
-        
+        Fruit[] fruit = FindObjectsOfType<Fruit>();
+        foreach(Fruit f in fruit)
+        {
+            Destroy(f.gameObject);
+        }
+
+        OnGameFinsihed?.Invoke(IsWin);
+        StopCoroutine(nameof(Spawning));
+    }
+
+    IEnumerator Spawning()
+    {
+        while(true)
+        {
+            Instantiate(Fruits[Random.Range(0, Fruits.Length)]);
+            yield return new WaitForSeconds(0.25f);
+        }
     }
 }

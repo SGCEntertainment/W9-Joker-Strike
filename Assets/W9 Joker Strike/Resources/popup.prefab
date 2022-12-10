@@ -79,6 +79,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88c02771beb21549a13440889366108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lose: {fileID: 21300000, guid: b3303365396ee10429dcc7a0c8cc257d, type: 3}
+  win: {fileID: 21300000, guid: 87993b50e6e263547b4e99a3ed8a8b30, type: 3}
 --- !u!1 &4995354067403111781
 GameObject:
   m_ObjectHideFlags: 0

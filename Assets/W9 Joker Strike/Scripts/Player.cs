@@ -1,41 +1,30 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 public class Player : MonoBehaviour
 {
-    private Vector2 touchDirection;
-    private const float force = 4.0f;
+    private List<Vector3> positions = new List<Vector3>();
 
-    private Rigidbody2D Rigidbody { get; set; }
-
-    private Camera Camera { get; set; }
+    private TrailRenderer TrailRenderer { get; set; }
+    private EdgeCollider2D EdgeCollider2D { get; set; }
 
     private void Awake()
     {
-        Camera = Camera.main;
-        Rigidbody = GetComponent<Rigidbody2D>();
-    }
-
-    private void Start()
-    {
-        Invoke(nameof(Fall), Random.Range(10.0f, 25.0f));
+        TrailRenderer = GetComponent<TrailRenderer>();
+        EdgeCollider2D = GetComponent<EdgeCollider2D>();
     }
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if(TrailRenderer.positionCount == 0)
         {
-            touchDirection = Camera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-            touchDirection.Normalize();
+            return;
         }
-    }
 
-    private void FixedUpdate()
-    {
-        Rigidbody.AddForce(-touchDirection * force);
-    }
-
-    private void Fall()
-    {
-        Rigidbody.AddForce(Vector2.up * 1000);
+        TrailRenderer.GetPositions(positions.ToArray());
+        EdgeCollider2D.SetPoints(positions.Select((i) => new Vector2(i.x, i.y)).ToList());
     }
 }

@@ -9,8 +9,8 @@ public class Popup : MonoBehaviour
 
     public void SetData(bool IsWin, UnityAction action)
     {
-        GetComponent<Image>().sprite = IsWin ? win : lose;
-        GetComponent<Image>().SetNativeSize();
+        transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = IsWin ? win : lose;
+        transform.GetChild(0).GetChild(0).GetComponent<Image>().SetNativeSize();
 
         GameObject.Find("again").GetComponent<Button>().onClick.AddListener(action);
         GameObject.Find("again").GetComponent<Button>().onClick.AddListener(() =>

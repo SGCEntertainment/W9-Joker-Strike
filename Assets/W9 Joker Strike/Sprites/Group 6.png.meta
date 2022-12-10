@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: a8338f83db69e21429c1e1317ec113ed
+guid: 4bfd1bd5f7f0ae141b41d51439983963
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -26329759613171845
-    second: Group 4_0
+      213: -2524709661943058933
+    second: Group 6_0
   - first:
-      213: -2591891768109001643
-    second: Group 4_1
+      213: -7619575802209691265
+    second: Group 6_1
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Group 4_0
+      name: Group 6_0
       rect:
         serializedVersion: 2
-        x: 68
-        y: 50
-        width: 276
-        height: 314
+        x: 226
+        y: 68
+        width: 157
+        height: 303
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b774c3f193572aff0800000000000000
-      internalID: -26329759613171845
+      spriteID: b0e23ee50fd66fcd0800000000000000
+      internalID: -2524709661943058933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Group 4_1
+      name: Group 6_1
       rect:
         serializedVersion: 2
-        x: 657
-        y: 31
-        width: 251
-        height: 309
+        x: 551
+        y: 118
+        width: 212
+        height: 248
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5549a995b20c70cd0800000000000000
-      internalID: -2591891768109001643
+      spriteID: f79112a9d24d14690800000000000000
+      internalID: -7619575802209691265
       vertices: []
       indices: 
       edges: []

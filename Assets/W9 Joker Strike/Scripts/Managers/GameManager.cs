@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        completeCount = 0;
         totalCompleteCount = Random.Range(10, 25);
 
         Instantiate(Player, EnvironmentRef);

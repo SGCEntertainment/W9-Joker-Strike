@@ -20,7 +20,7 @@ public class Fruit : MonoBehaviour
 
     public void Slice()
     {
-        Instantiate(sliced, null);
+        Instantiate(sliced, transform.position, Quaternion.identity, null);
         Destroy(gameObject);
     }
 }

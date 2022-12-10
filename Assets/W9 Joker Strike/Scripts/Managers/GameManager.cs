@@ -36,10 +36,10 @@ public class GameManager : MonoBehaviour
             Destroy(f.gameObject);
         }
 
-        GameObject[] sliced = GameObject.FindGameObjectsWithTag("sliced");
-        foreach (GameObject s in sliced)
+        Sliced[] sliced = FindObjectsOfType<Sliced>();
+        foreach (Sliced s in sliced)
         {
-            Destroy(s);
+            Destroy(s.gameObject);
         }
 
         if (FindObjectOfType<Player>())

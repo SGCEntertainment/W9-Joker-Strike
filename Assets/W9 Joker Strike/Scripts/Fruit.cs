@@ -1,9 +1,14 @@
+using System;
 using UnityEngine;
+
+using Random = UnityEngine.Random;
 
 public class Fruit : MonoBehaviour
 {
     private Rigidbody2D Rigidbody { get; set; }
     [SerializeField] GameObject sliced;
+
+    public static Action OnCollided { get; set; }
 
     private void Awake()
     {
@@ -20,6 +25,8 @@ public class Fruit : MonoBehaviour
 
     public void Slice()
     {
+        OnCollided?.Invoke();
+
         Instantiate(sliced, transform.position, Quaternion.identity, null);
         Destroy(gameObject);
     }

@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6515051881298217252}
   - component: {fileID: 6515051881298217274}
-  - component: {fileID: 6515051881298217275}
   - component: {fileID: 6515051881298217253}
+  - component: {fileID: 4322217822912135068}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -140,28 +140,6 @@ TrailRenderer:
   m_MinVertexDistance: 0
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!68 &6515051881298217275
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6515051881298217255}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.1, y: 0}
-  - {x: 0.1, y: 0}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!114 &6515051881298217253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,3 +152,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4ce460555fac8649aa6417b6ca638fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &4322217822912135068
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6515051881298217255}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.03

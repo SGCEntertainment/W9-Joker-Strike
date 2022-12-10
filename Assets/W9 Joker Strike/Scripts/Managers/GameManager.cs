@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     private GameObject[] Fruits { get; set; }
     private Transform EnvironmentRef { get; set; }
 
+    private int completeCount;
+    private int totalCompleteCount;
+
     public static Action<bool> OnGameFinsihed { get; set; } = delegate { };
 
     private void Awake()
@@ -20,10 +23,20 @@ public class GameManager : MonoBehaviour
         Fruits = Resources.LoadAll<GameObject>("fruits");
 
         EnvironmentRef = GameObject.Find("Environment").transform;
+
+        Fruit.OnCollided += () =>
+        {
+            if(++completeCount >= totalCompleteCount)
+            {
+                GameOver(true);
+            }
+        };
     }
 
     public void RestartGame()
     {
+        totalCompleteCount = Random.Range(10, 25);
+
         Instantiate(Player, EnvironmentRef);
         StartCoroutine(nameof(Spawning));
     }
@@ -44,7 +57,7 @@ public class GameManager : MonoBehaviour
 
         if (FindObjectOfType<Player>())
         {
-            Destroy(FindObjectOfType<Player>());
+            Destroy(FindObjectOfType<Player>().gameObject);
         }
 
         OnGameFinsihed?.Invoke(IsWin);

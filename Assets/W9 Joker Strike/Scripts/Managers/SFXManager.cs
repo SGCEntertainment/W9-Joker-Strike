@@ -6,14 +6,14 @@ public class SFXManager : MonoBehaviour
 
     private void Awake()
     {
-        //Player.OnCollidedGold += () =>
-        //{
-        //    if(sfxSource.isPlaying)
-        //    {
-        //        sfxSource.Stop();
-        //    }
+        Fruit.OnCollided += () =>
+        {
+            if (sfxSource.isPlaying)
+            {
+                sfxSource.Stop();
+            }
 
-        //    sfxSource.Play();
-        //};
+            sfxSource.Play();
+        };
     }
 }

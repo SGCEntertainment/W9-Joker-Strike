@@ -40,8 +40,8 @@ public class GameManager : MonoBehaviour
     {
         while(true)
         {
-            Instantiate(Fruits[Random.Range(0, Fruits.Length)]);
-            yield return new WaitForSeconds(Random.Range(0.2f, 1.25f));
+            Instantiate(Fruits[Random.Range(0, Fruits.Length)], EnvironmentRef);
+            yield return new WaitForSeconds(Random.Range(0.2f, 0.75f));
         }
     }
 }
